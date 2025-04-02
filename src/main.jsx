@@ -7,6 +7,7 @@ import store from './store/store.js'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Home from './pages/Home.jsx'
 import { AuthLayout, Login } from './components/index.js'
+import LandingPage from './pages/LandingPage.jsx'
 
 
 import AddPost from "./pages/AddPost";
@@ -24,7 +25,15 @@ const router = createBrowserRouter([
     children: [
         {
             path: "/",
-            element: <Home />,
+            element: <LandingPage />,
+        },
+        {
+            path: "/home",
+            element: (
+                <AuthLayout authentication>
+                    <Home />
+                </AuthLayout>
+            ),
         },
         {
             path: "/login",
