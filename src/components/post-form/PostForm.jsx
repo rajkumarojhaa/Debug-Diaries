@@ -24,41 +24,40 @@ export default function PostForm({ post }) {
       console.error("User data is missing or invalid.");
       return;
     }
-  
+
     if (post) {
       const file = data.image[0]
         ? await appwriteService.uploadFile(data.image[0])
         : null;
-  
+
       if (file) {
         await appwriteService.deleteFile(post.featuredImage);
       }
-  
+
       const dbPost = await appwriteService.updatePost(post.$id, {
         ...data,
         featuredImage: file ? file.$id : post.featuredImage,
       });
-  
+
       if (dbPost) {
         navigate(`/post/${dbPost.$id}`);
       }
     } else {
       const file = await appwriteService.uploadFile(data.image[0]);
-  
+
       if (file) {
         data.featuredImage = file.$id;
         const dbPost = await appwriteService.createPost({
           ...data,
           userId: userData.$id, // Ensure userData.$id exists before using it
         });
-  
+
         if (dbPost) {
           navigate(`/post/${dbPost.$id}`);
         }
       }
     }
   };
-  
 
   const slugTransform = useCallback((value) => {
     if (typeof value === "string" && value) {
@@ -88,16 +87,20 @@ export default function PostForm({ post }) {
   }, [watch, slugTransform, setValue]);
 
   return (
-    <form onSubmit={handleSubmit(submit)} className="flex flex-wrap">
-      <div className="w-2/3 px-2">
+    <form
+      onSubmit={handleSubmit(submit)}
+      className="flex flex-col md:flex-row flex-wrap"
+    >
+      {/* Left Column */}
+      <div className="w-full md:w-2/3 px-2">
         <Input
-          label="Title :"
+          label="Title:"
           placeholder="Title"
           className="mb-4"
           {...register("title", { required: true })}
         />
         <Input
-          label="Slug :"
+          label="Slug:"
           placeholder="Slug"
           className="mb-4"
           {...register("slug", { required: true })}
@@ -108,15 +111,17 @@ export default function PostForm({ post }) {
           }}
         />
         <RTE
-          label="Content :"
+          label="Content:"
           name="content"
           control={control}
           defaultValue={getValues("content")}
         />
       </div>
-      <div className="w-1/3 px-2">
+
+      {/* Right Column */}
+      <div className="w-full md:w-1/3 px-2">
         <Input
-          label="Featured Image :"
+          label="Featured Image:"
           type="file"
           className="mb-4"
           accept="image/png, image/jpg, image/jpeg, image/gif"
@@ -125,9 +130,9 @@ export default function PostForm({ post }) {
         {post && (
           <div className="w-full mb-4">
             <img
-              src={appwriteService.getFilePreview(post.featuredImage)}
+              src={appwriteService.getFileDownload(post.featuredImage)}
               alt={post.title}
-              className="rounded-lg"
+              className="rounded-lg w-full h-auto object-cover"
             />
           </div>
         )}

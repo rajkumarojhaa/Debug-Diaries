@@ -25,7 +25,7 @@ export default function LandingPage() {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-blue-700 via-purple-500 to-pink-300">
+    <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-blue-200 via-purple-200 to-pink-200">
       {/* Header */}
 
       {/* Full-Screen Banner */}
@@ -35,7 +35,7 @@ export default function LandingPage() {
           <img
             src="/banner1.jpg?height=1080&width=1920"
             alt="Coding background"
-            className="object-cover w-full h-full"
+            className="object-cover w-full h-full "
           />
           <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-secondary/80 mix-blend-multiply" />
           <div className="absolute inset-0 bg-grid-white/[0.05] bg-[size:50px_50px]" />
@@ -122,9 +122,9 @@ export default function LandingPage() {
       </section>
 
       {/* Info Banners about Coding Blogs */}
-      <section className="py-16 bg-muted/30">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <section className="py-16 bg-muted/30 ">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 ">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 ">
             {[
               {
                 icon: <Code className="h-10 w-10" />,
@@ -154,7 +154,7 @@ export default function LandingPage() {
                 className="relative overflow-hidden"
               >
                 <div className="bg-gradient-to-br from-primary/10 to-secondary/10 rounded-xl p-8 h-full border border-border/60">
-                  <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-primary/10 blur-xl" />
+                  <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-primary/10 blur-xl  " />
                   <div className="relative">
                     <div className="p-3 rounded-full bg-primary/10 text-primary mb-4 inline-block">
                       {banner.icon}
@@ -185,7 +185,7 @@ export default function LandingPage() {
               <div className="absolute inset-0 bg-grid-white/[0.03] bg-[size:30px_30px]" />
             </div>
 
-            <div className="relative z-10 p-8 md:p-12 lg:p-16 text-white">
+            <div className="relative z-10 p-8 md:p-12 lg:p-16 text-zinc-300">
               <div className="max-w-3xl">
                 <div className="px-3 py-1 text-sm bg-white/10 border border-white/20 text-white mb-6 rounded">
                   Editor's Pick
@@ -201,19 +201,19 @@ export default function LandingPage() {
                 <div className="flex items-center space-x-4 mb-8">
                   <div className="h-10 w-10 border-2 border-white/20 rounded-full overflow-hidden">
                     <img
-                      src="/avatar1.svg"
+                      src="/pro.jpg"
                       alt="Author"
                       className="h-full w-full"
                     />
                   </div>
                   <div>
-                    <p className="font-medium">Jane Doe</p>
+                    <p className="font-medium">Rajkumar Ojha</p>
                     <p className="text-white/60 text-sm">
                       Lead Developer • April 1, 2025
                     </p>
                   </div>
                 </div>
-                <button className="bg-white text-primary hover:bg-white/90 px-4 py-2 rounded flex items-center">
+                <button className="bg-white/20 text-primary hover:bg-slate-500 px-4 py-2 rounded flex items-center">
                   Read Article
                   <svg
                     className="ml-2 h-4 w-4"
