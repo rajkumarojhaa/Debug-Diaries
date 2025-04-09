@@ -17,6 +17,7 @@ import EditPost from "./pages/EditPost";
 import Post from "./pages/Post";
 
 import AllPosts from "./pages/AllPosts";
+import AskAi from './pages/AskAi.jsx'
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,14 @@ const router = createBrowserRouter([
             element: (
                 <AuthLayout authentication>
                     <Home />
+                </AuthLayout>
+            ),
+        },
+        {
+            path: "/ask-ai",
+            element: (
+                <AuthLayout authentication>
+                    <AskAi />
                 </AuthLayout>
             ),
         },

@@ -88,9 +88,10 @@ export default function LandingPage() {
               <Button
                 size="lg"
                 variant="outline"
+                onClick={() => navigate('/ask-ai')}
                 className="font-medium border-white text-white hover:bg-white/10"
               >
-                Subscribe
+                Ask To Ai
               </Button>
             </div>
             <div className="flex items-center justify-center space-x-4 text-sm text-white/80 mt-8">
