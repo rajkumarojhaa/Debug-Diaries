@@ -54,6 +54,21 @@ export class AuthService {
             console.log("Appwrite serive :: logout :: error", error);
         }
     }
+
+    async sendPasswordRecovery(email, redirectUrl) {
+        try {
+            return await this.account.createRecovery(email, redirectUrl);
+        } catch (error) {
+            console.log("Appwrite service :: sendPasswordRecovery :: error", error);
+            throw error;
+        }
+    }
+
+    resetPassword(userId, secret, password, confirmPassword) {
+        return this.account.updateRecovery(userId, secret, password, confirmPassword);
+    }
+    
+      
 }
 
 const authService = new AuthService();

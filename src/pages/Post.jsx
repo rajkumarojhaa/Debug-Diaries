@@ -4,6 +4,7 @@ import appwriteService from "../appwrite/config";
 import { Button, Container } from "../components";
 import parse from "html-react-parser";
 import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
 
 export default function Post() {
   const [post, setPost] = useState(null);
@@ -27,6 +28,7 @@ export default function Post() {
     appwriteService.deletePost(post.$id).then((status) => {
       if (status) {
         appwriteService.deleteFile(post.featuredImage);
+        toast.success("Post Deleted Successfully");
         navigate("/");
       }
     });
@@ -39,7 +41,7 @@ export default function Post() {
           <img
             src={appwriteService.getFileDownload(post.featuredImage)}
             alt={post.title}
-            className="rounded-xl"
+            className="rounded-xl w-full object-fill h-48 sm:h-64 md:h-80 lg:h-96"
           />
 
           {isAuthor && (

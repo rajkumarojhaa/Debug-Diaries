@@ -5,6 +5,8 @@ import { Button, Input, Logo } from "./index";
 import { useDispatch } from "react-redux";
 import authService from "../appwrite/auth";
 import { useForm } from "react-hook-form";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Login() {
   const navigate = useNavigate();
@@ -19,10 +21,12 @@ function Login() {
       if (session) {
         const userData = await authService.getCurrentUser();
         if (userData) dispatch(authLogin(userData));
+        toast.success("Login Successful");
         navigate("/");
       }
     } catch (error) {
       setError(error.message);
+      toast.error("Invalid email or password");
     }
   };
 
@@ -86,9 +90,19 @@ function Login() {
             <Button type="submit" className="w-full bg-blue-500 hover:bg-blue-600 transition">
               Sign in
             </Button>
+            {/* Forgot Password Link */}
+            <div className="text-right">
+              <Link
+                to="/forgot-password"
+                className="text-sm text-blue-400 hover:underline transition-all"
+              >
+                Forgot Password?
+              </Link>
+            </div>
           </div>
         </form>
       </div>
+      <ToastContainer position="top-right" autoClose={3000} />
     </div>
   );
 }

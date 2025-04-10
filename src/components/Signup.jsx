@@ -5,6 +5,8 @@ import {login} from '../store/authSlice'
 import {Button, Input, Logo} from './index.js'
 import {useDispatch} from 'react-redux'
 import {useForm} from 'react-hook-form'
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Signup() {
     const navigate = useNavigate()
@@ -19,10 +21,12 @@ function Signup() {
             if (userData) {
                 const userData = await authService.getCurrentUser()
                 if(userData) dispatch(login(userData));
+                toast.success("Account Created Successfully")
                 navigate("/")
             }
         } catch (error) {
             setError(error.message)
+            toast.error("Error creating account")
         }
     }
 
@@ -96,6 +100,7 @@ function Signup() {
           </div>
         </form>
       </div>
+      <ToastContainer position="top-right" autoClose={3000} />
     </div>
   )
 }

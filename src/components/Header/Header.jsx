@@ -68,7 +68,7 @@ function Header() {
                 )
             )}
             {authStatus && <LogoutBtn />}
-            {authStatus && <AiBtn />}
+            
             <form onSubmit={handleSearch} className="relative">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               <Input
@@ -119,9 +119,7 @@ function Header() {
           <div className="px-3 py-2">
             <LogoutBtn />
           </div>
-          <div className="px-3 py-2">
-            <AiBtn />
-          </div>
+          
         </>
       )}
 

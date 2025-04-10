@@ -94,25 +94,7 @@ export default function LandingPage() {
                 Ask To Ai
               </Button>
             </div>
-            <div className="flex items-center justify-center space-x-4 text-sm text-white/80 mt-8">
-              <div className="flex -space-x-2">
-                {[1, 2, 3, 4].map((i) => (
-                  <Avatar
-                    key={i}
-                    className="border-2 border-background h-8 w-8"
-                  >
-                    <AvatarImage
-                      src={`/placeholder.svg?height=32&width=32`}
-                      alt={`User ${i}`}
-                    />
-                    <AvatarFallback>U{i}</AvatarFallback>
-                  </Avatar>
-                ))}
-              </div>
-              <span className="bg-gradient-to-r from-blue-300 via-purple-400 to-pink-400 text-transparent bg-clip-text">
-                Join 10,000+ developers
-              </span>
-            </div>
+            
           </motion.div>
         </div>
 

@@ -4,6 +4,8 @@ import { Button, Input, RTE, Select } from "..";
 import appwriteService from "../../appwrite/config";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
+
 
 export default function PostForm({ post }) {
   const { register, handleSubmit, watch, setValue, control, getValues } =
@@ -40,6 +42,7 @@ export default function PostForm({ post }) {
       });
 
       if (dbPost) {
+        toast.success("Post updated successfully ✨");
         navigate(`/post/${dbPost.$id}`);
       }
     } else {
@@ -53,6 +56,7 @@ export default function PostForm({ post }) {
         });
 
         if (dbPost) {
+          toast.success("Post created successfully 🎉");
           navigate(`/post/${dbPost.$id}`);
         }
       }

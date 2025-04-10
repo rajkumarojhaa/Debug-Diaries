@@ -1,5 +1,7 @@
 import React, { createContext, useState, useEffect } from "react";
 import appwriteService from "../appwrite/config";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const PostsContext = createContext();
 

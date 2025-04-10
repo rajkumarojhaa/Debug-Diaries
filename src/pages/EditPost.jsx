@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react'
 import {Container, PostForm} from '../components'
 import appwriteService from "../appwrite/config";
 import { useNavigate,  useParams } from 'react-router-dom';
+import { toast } from "react-toastify";
+
 
 function EditPost() {
     const [post, setPosts] = useState(null)
@@ -16,6 +18,7 @@ function EditPost() {
                 }
             })
         } else {
+            toast.error("Post not found");
             navigate('/')
         }
     }, [slug, navigate])

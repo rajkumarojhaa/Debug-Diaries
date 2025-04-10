@@ -18,6 +18,8 @@ import Post from "./pages/Post";
 
 import AllPosts from "./pages/AllPosts";
 import AskAi from './pages/AskAi.jsx'
+import ForgotPassword from './pages/ForgotPassword.jsx'
+import ResetPassword from './pages/ResetPassword.jsx'
 
 const router = createBrowserRouter([
   {
@@ -34,6 +36,22 @@ const router = createBrowserRouter([
                 <AuthLayout authentication>
                     <Home />
                 </AuthLayout>
+            ),
+        },
+        {
+            path: "/forgot-password",
+            element: (
+                
+                    <ForgotPassword />
+                
+            ),
+        },
+        {
+            path: "/reset-password",
+            element: (
+                
+                    <ResetPassword />
+                
             ),
         },
         {
