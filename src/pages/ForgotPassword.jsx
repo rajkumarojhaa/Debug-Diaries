@@ -18,7 +18,7 @@ const ForgotPassword = () => {
 
     try {
       setError('');
-      await authService.sendPasswordRecovery(email, "https://debug-diaries.vercel.app/reset-password");
+      await authService.sendPasswordRecovery(email, "https://debug-diaries.vercel.app/reset-passwordd");
       setSubmitted(true);
       toast.success("Reset Link Sent To Your Mail");
     } catch (err) {
